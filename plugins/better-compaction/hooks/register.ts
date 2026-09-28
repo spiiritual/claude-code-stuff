@@ -2,7 +2,7 @@ import type { Register, TurnStepInput } from 'claude-code'
 
 // Never defer once the context is this full (% of the model's window): past it,
 // waiting risks a prompt-too-long error, so the compaction runs mid-turn.
-const DEFER_UNDER_PERCENT = 90
+const DEFER_UNDER_PERCENT = 80
 
 export const register: Register = (on, options) => {
   const defer = options.deferCompaction !== false
