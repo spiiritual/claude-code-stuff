@@ -1,0 +1,4 @@
+{
+  "description": "A draw tool that shows an SVG diagram as a picture in the transcript",
+  "modules": ["./register.tsx"]
+}

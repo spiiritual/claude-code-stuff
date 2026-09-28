@@ -9,6 +9,11 @@
       "name": "better-compaction",
       "source": "./plugins/better-compaction",
       "description": "Compaction that waits for the model's turn to end, and summarizes at its own effort level."
+    },
+    {
+      "name": "whiteboard-defense",
+      "source": "./plugins/whiteboard-defense",
+      "description": "Plan with a real diagram and decisions you make yourself, then get grilled on what you built."
     }
   ]
 }

@@ -1,0 +1,7 @@
+{
+  "name": "whiteboard-defense",
+  "version": "0.1.0",
+  "description": "Understand what you ship: plan with a real diagram and decisions you make yourself, then get grilled on it after building.",
+  "author": { "name": "spiiritual" },
+  "license": "MIT-0"
+}

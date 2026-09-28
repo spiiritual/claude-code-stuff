@@ -41,3 +41,18 @@ Measured on a 214k-token session (3 runs each, recall quiz of 22 facts):
 Recall was the same within noise at every level, while time grew with effort.
 
 In headless mode (`-p`, SDK) the deferred compaction runs at the start of the next prompt instead of right after the turn.
+
+## whiteboard-defense
+
+```
+/plugin install whiteboard-defense@claude-code-stuff
+```
+
+For Mitchell Hashimoto's [whiteboard defense](https://x.com/mitchellh): you should be able to explain any customer-facing system you ship and defend its decisions, even if Claude wrote the code.
+
+- **`/whiteboard-defense plan`** replaces the written plan. Claude draws the system as a real diagram, asks you the decisions that matter as consequence stories ("server dies mid-refund: customer charged with no refund, or refund 30s late?"), then has you explain it back.
+- **`/whiteboard-defense grill`** quizzes you after building: why X over Y, what a malicious user can do, where it fails. Answers are graded against the code, and drift from the plan is flagged.
+
+Plans are saved as cards in the plugin's data folder, never in your repo.
+
+The diagrams are pictures drawn in the transcript by a mod, so they need function hooks on (see above), macOS (it renders with the built-in `qlmanage`), and a terminal that shows images (Ghostty, kitty, iTerm2, WezTerm; not tmux). Anywhere else you get a text diagram.
