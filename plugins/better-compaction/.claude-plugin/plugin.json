@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Compaction that waits for the model's turn to end, and summarizes at its own effort level.",
   "author": { "name": "spiiritual" },
-  "license": "MIT",
+  "license": "MIT-0",
   "userConfig": {
     "deferCompaction": {
       "type": "boolean",
