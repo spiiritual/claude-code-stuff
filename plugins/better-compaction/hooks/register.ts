@@ -1,11 +1,10 @@
 import type { Register, TurnStepInput } from 'claude-code'
 
-// Never defer once the context is this full (% of the model's window): past it,
-// waiting risks a prompt-too-long error, so the compaction runs mid-turn.
-const DEFER_UNDER_PERCENT = 80
-
 export const register: Register = (on, options) => {
   const defer = options.deferCompaction !== false
+  // Never defer once the context is this full (% of the model's window): past it,
+  // waiting risks a prompt-too-long error, so the compaction runs mid-turn.
+  const deferUnderPercent = typeof options.deferUnderPercent === 'number' ? options.deferUnderPercent : 80
   const effort = typeof options.compactionEffort === 'string' ? options.compactionEffort : 'inherit'
   const overrideEffort = effort !== 'inherit'
 
@@ -26,7 +25,7 @@ export const register: Register = (on, options) => {
 
     if (defer && e.trigger === 'auto' && midTurn && !lastStepFailed) {
       const { context } = await $.session.usage()
-      if ((context.percent ?? 0) < DEFER_UNDER_PERCENT) {
+      if ((context.percent ?? 0) < deferUnderPercent) {
         pending = true
         return { block: 'better-compaction: compacting when this turn ends' }
       }

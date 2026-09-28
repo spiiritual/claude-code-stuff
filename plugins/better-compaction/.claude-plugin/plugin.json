@@ -11,6 +11,14 @@
       "description": "On: auto-compaction never interrupts the model mid-turn; it runs as soon as the turn ends. Off: Claude Code's default (compacts mid-turn).",
       "default": true
     },
+    "deferUnderPercent": {
+      "type": "number",
+      "title": "Stop waiting past this context %",
+      "description": "Once the context is this full (% of the model's context window), compaction runs mid-turn anyway, so the turn can't hit a prompt-too-long error. 100 never stops waiting.",
+      "min": 0,
+      "max": 100,
+      "default": 80
+    },
     "compactionEffort": {
       "type": "string",
       "title": "Compaction effort",

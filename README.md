@@ -11,7 +11,7 @@ A Claude Code plugin marketplace.
 
 A Claude Mod that fixes two things about compaction:
 
-- **Waits for the turn to end.** Auto-compaction no longer interrupts the model mid-turn; it runs as soon as the turn finishes. Past 90% of the context window, or after a prompt-too-long error, it compacts mid-turn as usual.
+- **Waits for the turn to end.** Auto-compaction no longer interrupts the model mid-turn; it runs as soon as the turn finishes. Past 80% of the context window (configurable), or after a prompt-too-long error, it compacts mid-turn as usual.
 - **Summarizes at its own effort.** The summary runs at a lower effort than the conversation (default `medium`). The model stays the same, so the prompt cache is kept. Subagents running during a summary keep their own effort.
 
 Mods need function hooks on. Add this to `~/.claude/settings.json`:
@@ -25,6 +25,7 @@ Settings, in `/config`:
 | Option | Default | |
 |---|---|---|
 | `deferCompaction` | on | Wait for the turn to end before compacting |
+| `deferUnderPercent` | `80` | Stop waiting once the context is this full (% of the window) |
 | `compactionEffort` | `medium` | `inherit`, `low`, `medium`, `high`, `xhigh` or `max` |
 
 Measured on a 214k-token session (3 runs each, recall quiz of 22 facts):
