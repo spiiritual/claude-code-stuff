@@ -1,0 +1,14 @@
+{
+  "name": "claude-code-stuff",
+  "description": "Personal Claude Code plugins",
+  "owner": {
+    "name": "spiiritual"
+  },
+  "plugins": [
+    {
+      "name": "better-compaction",
+      "source": "./plugins/better-compaction",
+      "description": "Compaction that waits for the model's turn to end, and summarizes at its own effort level."
+    }
+  ]
+}

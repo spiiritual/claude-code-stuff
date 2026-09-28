@@ -1,0 +1,4 @@
+{
+  "description": "Defer mid-turn auto-compaction to the end of the turn; run the summarizer at its own effort",
+  "modules": ["./register.ts"]
+}

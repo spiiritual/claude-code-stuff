@@ -1,0 +1,22 @@
+{
+  "name": "better-compaction",
+  "version": "0.1.0",
+  "description": "Compaction that waits for the model's turn to end, and summarizes at its own effort level.",
+  "author": { "name": "spiiritual" },
+  "license": "MIT",
+  "userConfig": {
+    "deferCompaction": {
+      "type": "boolean",
+      "title": "Wait for the turn to end before compacting",
+      "description": "On: auto-compaction never interrupts the model mid-turn; it runs as soon as the turn ends. Off: Claude Code's default (compacts mid-turn).",
+      "default": true
+    },
+    "compactionEffort": {
+      "type": "string",
+      "title": "Compaction effort",
+      "description": "Effort level the summarizer runs at. The model stays the same, so the prompt cache is kept. 'inherit' uses the conversation's effort.",
+      "options": ["inherit", "low", "medium", "high", "xhigh", "max"],
+      "default": "medium"
+    }
+  }
+}
